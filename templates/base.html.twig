@@ -2,11 +2,21 @@
 <html>
     <head>
         <meta charset="UTF-8">
+		<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+		
         <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-    </head>
-    <body>
+        {% block stylesheets %}
+			<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.5.0-rc.2/dist/css/foundation-float.min.css" integrity="sha256-SXzNzz68b8cy/1oRvdP128/5VlvegrZO5QDmBiqhlQc= sha384-5EVTk1nWllg1T/XoVEd82fhnOxUhRUOquz4AyO3+M0kbhUzhruouReQWPnihRxPs sha512-y0IHToRgzE99SfoteKLXR0MUOTRPMQHwc4nmU2/Uqhu4KulOzK18RbuicuhlgzPDdj23skwxTWUv7CJs+psXig==" crossorigin="anonymous">
+			<link rel="stylesheet" href="{{ asset('build/css/vendor.css') }}">
+			<link rel="stylesheet" href="{{ asset('build/css/style.css') }}">
+		{% endblock %}
+		</head>
+		<body>
+			{% include 'header.html.twig' %}
+		
         {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
+        {% block javascripts %}
+			<script src="{{ asset('build/js/vendor.js') }}"></script>
+		{% endblock %}
     </body>
 </html>

@@ -3,15 +3,28 @@ const path = require('path');
 var glob = require('glob');
 
 Encore
-// directory where compiled assets will be stored
 .setOutputPath('public/build/')
-// public path used by the web server to access the output path
 .setPublicPath('/build')
-
 .cleanupOutputBeforeBuild()
+
+.addEntry('js/vendor', [
+  './assets/js/index.js',
+])
+
+.addEntry('js/index', [
+  './node_modules/ribs-popup/dist/js/ribs-popup.js',
+])
+
+.addStyleEntry('css/vendor', [
+  './node_modules/ribs-popup/dist/css/style.css',
+])
+
+.addStyleEntry('css/style', [
+  './assets/scss/style.scss'
+])
+
 .enableBuildNotifications()
 .enableSourceMaps(!Encore.isProduction())
-// enables hashed filenames (e.g. app.abc123.css)
 .enableVersioning(Encore.isProduction())
 
 .addLoader({

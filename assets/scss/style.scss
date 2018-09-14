@@ -1,0 +1,28 @@
+@font-face {
+	font-family: futura;
+	src: url(fonts/futuram.ttf);
+}
+
+@font-face {
+	font-family: futuraextra;
+	src: url(fonts/futura-extra.ttf);
+}
+
+html, body {
+	height: 100%;
+	min-height: 100%;
+}
+
+body {
+	font-family: futura;
+	background-color: #f8f8f8;
+}
+
+
+$header-background: #ffffff;
+$header-color: #000000;
+
+$index-color: #ffffff;
+
+@import "header";
+@import "index";

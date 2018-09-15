@@ -4,6 +4,11 @@
 }
 
 @font-face {
+	font-family: futurabook;
+	src: url(fonts/futura-book.ttf);
+}
+
+@font-face {
 	font-family: futuraextra;
 	src: url(fonts/futura-extra.ttf);
 }
@@ -24,5 +29,10 @@ $header-color: #000000;
 
 $index-color: #ffffff;
 
+$apropos-span-color: #065f79;
+$apropos-a-background: #588697;
+$apropos-a-color: #ffffff;
+
 @import "header";
 @import "index";
+@import "a_propos";

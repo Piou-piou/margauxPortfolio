@@ -1,0 +1,56 @@
+.a-propos {
+
+	img#margaux {
+		position: fixed;
+		bottom: -3px;
+		left: 0;
+		width: 40%;
+	}
+
+	@media screen and (max-width: 640px) {
+		.margaux {
+			width: 100%;
+			margin-top: 1rem;
+
+			img#margaux {
+				position: relative;
+				display: block;
+				margin: 0 auto;
+				padding-top: 1rem;
+			}
+		}
+	}
+
+	.texte {
+		margin-top: 2rem;
+		font-family: futurabook;
+
+		p {
+			font-size: 20px;
+
+			span {
+				color: $apropos-span-color;
+				font-size: 15px;
+			}
+
+			&.centre {
+				margin-top: 60px;
+			}
+		}
+
+		a.savoir-plus {
+			display: block;
+			width: 155px;
+			padding: 10px;
+			border-radius: 3px;
+			background: $apropos-a-background;
+			color: $apropos-a-color;
+			margin-top: 60px;
+		}
+
+		img {
+			margin-top: 1rem;
+		}
+	}
+
+}

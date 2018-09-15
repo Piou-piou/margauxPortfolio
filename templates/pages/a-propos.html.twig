@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+	<div class="a-propos">
+		<div class="row">
+			<div class="small-12 medium-7 medium-offset-5 columns texte">
+				<p>
+					Les couleurs<br>
+					Expérimenter<br>
+					Questionner mon environnement <span class="blue">et le quotidien</span><br>
+					Faire un pas de côté <span class="blue">pour mieux voir ce qu’il en ressort</span><br>
+					Le travail d’équipe <span class="blue">qui est un moteur générateur d’idées nouvelles</span>
+				</p>
+				
+				<p class="centre">
+					J’ai acquis au cours de mon expérience un sens de l’observation et une méthodologie qui me permettent de proposer des produits pertinents au plus proches des besoins de l’usager. J’ai perfectionné ma maîtrise d’un panel varié de logiciels au cours de mes expériences professionnelles et personnelles.
+					J’ai développé une curiosité, indispensable quand on aborde de nouveaux domaines qui impliquent de nouvelles connaissances je sais me renouveler et ne reste pas dans ma zone de confort.
+				</p>
+				
+				<p>Ce sont dans des choses simples que résident des astuces qui simplifient le quotidien.</p>
+				
+				<a href="" class="savoir-plus">Pour en savoir plus</a>
+				
+				<img src="{{ asset('images/logos-logiciels.png') }}" alt="logiciels maitrisés, photoshop, illustrator, indesing, solidworks">
+			</div>
+			
+			<div class="margaux">
+				<img src="{{ asset('images/margaux.png') }}" id="margaux" alt="A propos de Margaux Bailly - designer">
+			</div>
+		</div>
+	</div>
+{% endblock %}

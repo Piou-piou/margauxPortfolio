@@ -22,4 +22,12 @@ class PagesController extends AbstractController
 	{
 		return $this->render("pages/a-propos.html.twig");
 	}
+	
+	/**
+	 * @Route("/contact", name="contact")
+	 */
+	public function contact()
+	{
+		return $this->render("pages/contact.html.twig");
+	}
 }

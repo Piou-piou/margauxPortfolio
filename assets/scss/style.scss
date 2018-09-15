@@ -9,6 +9,11 @@
 }
 
 @font-face {
+	font-family: futuralight;
+	src: url(fonts/futura-light.ttf);
+}
+
+@font-face {
 	font-family: futuraextra;
 	src: url(fonts/futura-extra.ttf);
 }
@@ -33,6 +38,11 @@ $apropos-span-color: #065f79;
 $apropos-a-background: #588697;
 $apropos-a-color: #ffffff;
 
+$contact-h2-color: #10642c;
+$contact-form-background: #ffffff;
+$contact-form-input-background: #f6f6f6;
+
 @import "header";
 @import "index";
 @import "a_propos";
+@import "contact";

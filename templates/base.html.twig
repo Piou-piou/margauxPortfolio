@@ -1,22 +1,48 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
+	<head>
+		<meta charset="UTF-8">
 		<meta name="viewport" content="initial-scale=1, maximum-scale=1">
 		
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}
+		<title>{% block title %}Welcome!{% endblock %}</title>
+		{% block stylesheets %}
 			<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.5.0-rc.2/dist/css/foundation-float.min.css" integrity="sha256-SXzNzz68b8cy/1oRvdP128/5VlvegrZO5QDmBiqhlQc= sha384-5EVTk1nWllg1T/XoVEd82fhnOxUhRUOquz4AyO3+M0kbhUzhruouReQWPnihRxPs sha512-y0IHToRgzE99SfoteKLXR0MUOTRPMQHwc4nmU2/Uqhu4KulOzK18RbuicuhlgzPDdj23skwxTWUv7CJs+psXig==" crossorigin="anonymous">
 			<link rel="stylesheet" href="{{ asset('build/css/vendor.css') }}">
 			<link rel="stylesheet" href="{{ asset('build/css/style.css') }}">
 		{% endblock %}
-		</head>
-		<body>
-			{% include 'header.html.twig' %}
+	</head>
+	<body>
+		<header>
+			<nav>
+				<div class="row expanded">
+					<div class="small-12 medium-2 medium-offset-1 columns">
+						<a href="" class="accueil">
+							<span class="prenom">Margaux</span>
+							<span class="nom">Bailly</span>
+						</a>
+					</div>
+					<div class="small-12 medium-6 columns">
+						<ul>
+							<li><a href="{{ path('projets') }}" title="Mes projets" class="{% block class_projets %}{% endblock %}">Projets</a></li>
+							<li><a href="{{ path('a_propos') }}" title="A propos de Margaux Bailly - designer"  class="{% block class_propos %}{% endblock %}">A propos</a></li>
+							<li><a href="{{ path('contact') }}" title="Contactez Margaux Bailly" class="{% block class_contact %}{% endblock %}">Contact</a></li>
+						</ul>
+					</div>
+					<div class="small-12 medium-2 columns end">
+						<a href="" class="accueil">
+							<span class="prenom">Margaux</span>
+							<span class="nom">Bailly</span>
+						</a>
+					</div>
+				</div>
+			</nav>
+		</header>
 		
-        {% block body %}{% endblock %}
-        {% block javascripts %}
+		{% block body %}{% endblock %}
+		
+		
+		{% block javascripts %}
 			<script src="{{ asset('build/js/vendor.js') }}"></script>
 		{% endblock %}
-    </body>
+	</body>
 </html>

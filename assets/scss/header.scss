@@ -20,6 +20,19 @@ header {
 			}
 		}
 
+		a.projet-actif {
+			color: $header-projets-active-color;
+		}
+		a.propos-actif {
+			color: $header-apropos-active-color;
+		}
+		a.contact-actif {
+			color: $header-contact-active-color;
+		}
+		a.inactive {
+			color: $header-link-inactive-color;
+		}
+
 		ul {
 			line-height: 80px;
 			font-size: 20px;

@@ -1,0 +1,12 @@
+.projets {
+	margin-top: 3rem;
+
+	.bloc {
+		background: #C9C9C9;
+		height: 400px;
+
+		&.clair {
+			background: #dadada;
+		}
+	}
+}

@@ -38,6 +38,10 @@ header {
 			font-size: 20px;
 			padding-left: 20%;
 
+			@media screen and (max-width: 640px) {
+				padding-left: 10%;
+			}
+
 			li {
 				display: inline-block;
 				list-style: none;
@@ -46,6 +50,24 @@ header {
 				a {
 					color: $header-color;
 				}
+			}
+		}
+
+		.icones {
+			@media screen and (max-width: 640px) {
+				div {
+					display: block;
+					margin: 0 auto;
+					width: 137px;
+				}
+			}
+
+			i {
+				display: inline-block;
+				line-height: 80px;
+				color: $header-color;
+				margin-right: 20px;
+				font-size: 50px;
 			}
 		}
 	}

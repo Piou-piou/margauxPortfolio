@@ -7,6 +7,7 @@
 		<title>{% block title %}Welcome!{% endblock %}</title>
 		{% block stylesheets %}
 			<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.5.0-rc.2/dist/css/foundation-float.min.css" integrity="sha256-SXzNzz68b8cy/1oRvdP128/5VlvegrZO5QDmBiqhlQc= sha384-5EVTk1nWllg1T/XoVEd82fhnOxUhRUOquz4AyO3+M0kbhUzhruouReQWPnihRxPs sha512-y0IHToRgzE99SfoteKLXR0MUOTRPMQHwc4nmU2/Uqhu4KulOzK18RbuicuhlgzPDdj23skwxTWUv7CJs+psXig==" crossorigin="anonymous">
+			<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 			<link rel="stylesheet" href="{{ asset('build/css/vendor.css') }}">
 			<link rel="stylesheet" href="{{ asset('build/css/style.css') }}">
 		{% endblock %}
@@ -28,11 +29,15 @@
 							<li><a href="{{ path('contact') }}" title="Contactez Margaux Bailly" class="{% block class_contact %}{% endblock %}">Contact</a></li>
 						</ul>
 					</div>
-					<div class="small-12 medium-2 columns end">
-						<a href="" class="accueil">
-							<span class="prenom">Margaux</span>
-							<span class="nom">Bailly</span>
-						</a>
+					<div class="small-12 medium-2 columns end icones">
+						<div>
+							<a href="https://www.linkedin.com/in/margaux-bailly-b095a1a9/" title="Linkedin" target="_blank">
+								<i class="fab fa-linkedin fa-"></i>
+							</a>
+							<a href="" target="_blank">
+								<i class="fab fa-instagram"></i>
+							</a>
+						</div>
 					</div>
 				</div>
 			</nav>

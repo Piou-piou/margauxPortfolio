@@ -23,12 +23,31 @@ header {
 		a.projet-actif {
 			color: $header-projets-active-color;
 		}
+		a.projet:hover {
+			color: $header-projets-active-color;
+		}
+
 		a.propos-actif {
 			color: $header-apropos-active-color;
 		}
+		a.propos:hover {
+			color: $header-apropos-active-color
+		}
+
 		a.contact-actif {
 			color: $header-contact-active-color;
 		}
+		a.contact:hover {
+			color: $header-contact-active-color
+		}
+
+		a.linkedin:hover {
+			color: $header-linkedin-hover-color;
+		}
+		a.instagram:hover {
+			color: $header-instagram-hover-color;
+		}
+
 		a.inactive {
 			color: $header-link-inactive-color;
 		}

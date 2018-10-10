@@ -8,6 +8,10 @@ header {
 
 		a {
 			transition: all 0.3s ease;
+
+			i {
+				transition: all 0.3s ease;
+			}
 		}
 
 		a.accueil {
@@ -45,10 +49,10 @@ header {
 			color: $header-contact-active-color
 		}
 
-		a.linkedin:hover {
+		a.linkedin:hover i {
 			color: $header-linkedin-hover-color;
 		}
-		a.instagram:hover {
+		a.instagram:hover i {
 			color: $header-instagram-hover-color;
 		}
 

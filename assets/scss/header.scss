@@ -6,6 +6,10 @@ header {
 		font-size: 30px;
 		line-height: 40px;
 
+		a {
+			transition: all 0.3s ease;
+		}
+
 		a.accueil {
 			color: $header-color;
 			text-decoration: none;

@@ -1,0 +1,40 @@
+{% extends "@RibsAdmin/base.html.twig" %}
+
+{% block title_page %}
+	<h1>Blog</h1>
+{% endblock %}
+
+{% block nav_page %}
+	{% include "@RibsBlog/admin/navigation.html" with {'navigation': navigation} %}
+{% endblock %}
+
+{% block body %}
+	{% if ribsadmin_acces_right.testRight("ribsadmin@blog@create") == true %}
+		<div class="top-buttons">
+			<a href="{{ path('ribsadmin_blog_create') }}">Create an article</a>
+		</div>
+	{% endif %}
+	
+	<div class="multiple-blocks">
+		{% for i in articles %}
+			<div class="block">
+				<img src="{{ asset('bundles/ribsadmin/images/block-background.png') }}" alt="background of the block">
+				<h2>{{ i.title }}</h2>
+				
+				<div class="content">
+					<p>{{ i.article|striptags|slice(0, 150) }}</p>
+					<p>Published on {{ i.publicationDate|date("d/m/Y H:i:s") }}</p>
+					<p>State : {{ i.state }}</p>
+				</div>
+				
+				{% if ribsadmin_acces_right.testRight("ribsadmin@blog@edit") == true %}
+					<a href="{{ path('ribsadmin_blog_edit', {"url": i.url}) }}" class="edit">Edit</a>
+				{% endif %}
+				
+				{% if ribsadmin_acces_right.testRight("ribsadmin@blog@delete") == true %}
+					<a class="delete" href="">Delete</a>
+				{% endif %}
+			</div>
+		{% endfor %}
+	</div>
+{% endblock %}

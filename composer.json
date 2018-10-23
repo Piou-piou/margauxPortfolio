@@ -22,7 +22,8 @@
     "symfony/validator": "*",
     "symfony/web-link": "*",
     "symfony/yaml": "*",
-    "symfony/webpack-encore-pack": "*"
+    "symfony/webpack-encore-pack": "*",
+    "piou-piou/ribs-admin-bundle": "dev-master"
   },
   "require-dev": {
     "symfony/debug-pack": "*",

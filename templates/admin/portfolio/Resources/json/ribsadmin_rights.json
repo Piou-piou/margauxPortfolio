@@ -9,6 +9,11 @@
       "right": "ribsadmin@portfolio-margaux@create",
       "url": "ribsadmin_portfolio_create",
       "text": "Add a project"
+    },
+    {
+      "right": "ribsadmin@portfolio-margaux@edit",
+      "url": "ribsadmin_portfolio_edit",
+      "text": "Edit a project"
     }
   ]
 }

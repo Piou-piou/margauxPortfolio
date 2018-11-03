@@ -1,0 +1,51 @@
+{% extends "@RibsAdmin/base.html.twig" %}
+
+{% block title_page %}
+	<h1>Blog</h1>
+{% endblock %}
+
+{% block body %}
+	{{ form_start(form) }}
+	<div class="top-buttons">
+		{{ form_widget(form.submit) }}
+		<a href="{{ path('ribsadmin_portfolio_index') }}" class="delete">Annuler</a>
+	</div>
+	
+	<div class="content-block">
+		<h2>Informations pur le référencement</h2>
+		
+		<div class="block mid-width">
+			{{ form_label(form.titleTag) }}
+			{{ form_widget(form.titleTag) }}
+		</div>
+		
+		<div class="block mid-width">
+			{{ form_label(form.url) }}
+			{{ form_widget(form.url) }}
+		</div>
+		
+		<div class="block no-input">
+			{{ form_label(form.descriptionTag) }}
+			{{ form_widget(form.descriptionTag) }}
+		</div>
+	</div>
+	
+	<div class="content-block">
+		<h2>Informations du projet</h2>
+		
+		<div class="block mid-width">
+			{{ form_label(form.title) }}
+			{{ form_widget(form.title) }}
+		</div>
+	</div>
+	
+	<div class="content-block">
+		<h2>Description du projet</h2>
+		
+		<div class="block no-input">
+			{{ form_label(form.article) }}
+			{{ form_widget(form.article) }}
+		</div>
+	</div>
+	{{ form_end(form) }}
+{% endblock %}

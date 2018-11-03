@@ -23,15 +23,13 @@
 				
 				<div class="content">
 					<p>{{ i.article|striptags|slice(0, 150) }}</p>
-					<p>Published on {{ i.publicationDate|date("d/m/Y H:i:s") }}</p>
-					<p>State : {{ i.state }}</p>
 				</div>
 				
-				{% if ribsadmin_acces_right.testRight("ribsadmin@blog@edit") == true %}
-					<a href="{{ path('ribsadmin_blog_edit', {"url": i.url}) }}" class="edit">Edit</a>
+				{% if ribsadmin_acces_right.testRight("ribsadmin@portfolio-margaux@edit") == true %}
+					<a href="{{ path('ribsadmin_portfolio_edit', {"id": i.id}) }}" class="edit">Edit</a>
 				{% endif %}
 				
-				{% if ribsadmin_acces_right.testRight("ribsadmin@blog@delete") == true %}
+				{% if ribsadmin_acces_right.testRight("ribsadmin@portfolio-margaux@@delete") == true %}
 					<a class="delete" href="">Delete</a>
 				{% endif %}
 			</div>

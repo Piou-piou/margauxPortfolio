@@ -73,7 +73,7 @@ class Project
 	 *
 	 * @ORM\Column(name="state", type="integer", nullable=false)
 	 */
-	private $state;
+	private $state = self::PUBLISHED;
 	
 	/**
 	 * @var \DateTime

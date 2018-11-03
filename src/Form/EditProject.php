@@ -52,7 +52,8 @@ class EditProject extends AbstractType
 					'class' => 'label label-textarea'
 				],
 				'attr' => [
-					'class' => "tinymce"
+					'class' => "tinymce",
+					'readonly' => true
 				],
 				'required' => true
 			])

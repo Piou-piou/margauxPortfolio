@@ -1,0 +1,10 @@
+{
+  "items": [
+    {
+      "right": "ribsadmin@portfolio",
+      "url": "ribsadmin_portfolio_index",
+      "icon": "fa-file-text",
+      "text": "Gestion du portfolio"
+    }
+  ]
+}

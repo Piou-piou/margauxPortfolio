@@ -20,6 +20,10 @@ services:
         arguments: ['@service_container', "@ribs_admin.globals"]
         public: true
 
+    PiouPiou\RibsAdminBundle\Form\User:
+        autowire: true
+        autoconfigure: true
+
 framework:
     assets:
         packages:

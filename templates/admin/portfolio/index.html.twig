@@ -1,17 +1,17 @@
 {% extends "@RibsAdmin/base.html.twig" %}
 
 {% block title_page %}
-	<h1>Blog</h1>
+	<h1>Portfolio</h1>
 {% endblock %}
 
-{% block nav_page %}
+{#{% block nav_page %}
 	{% include "@RibsBlog/admin/navigation.html" with {'navigation': navigation} %}
-{% endblock %}
+{% endblock %}#}
 
 {% block body %}
-	{% if ribsadmin_acces_right.testRight("ribsadmin@blog@create") == true %}
+	{% if ribsadmin_acces_right.testRight("ribsadmin@portfolio-margaux@create") == true %}
 		<div class="top-buttons">
-			<a href="{{ path('ribsadmin_blog_create') }}">Create an article</a>
+			<a href="{{ path('ribsadmin_portfolio_create') }}">Ajouter un projet</a>
 		</div>
 	{% endif %}
 	

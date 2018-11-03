@@ -1,9 +1,14 @@
 {
   "items": [
     {
-      "right": "ribsadmin@portfolio",
+      "right": "ribsadmin@portfolio-margaux",
       "url": "ribsadmin_portfolio_index",
-      "text": "Index page of POrtfolio"
+      "text": "Index page of Portfolio"
+    },
+    {
+      "right": "ribsadmin@portfolio-margaux@create",
+      "url": "ribsadmin_portfolio_create",
+      "text": "Add a project"
     }
   ]
 }

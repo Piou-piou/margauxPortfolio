@@ -8,26 +8,13 @@
 {% block body %}
 	<div class="projets">
 		<div class="row expanded">
-			<div class="small-12 medium-4 columns bloc">
-			
-			</div>
-			<div class="small-12 medium-4 columns bloc clair">
-			
-			</div>
-			<div class="small-12 medium-4 columns bloc">
-			
-			</div>
-		</div>
-		<div class="row expanded">
-			<div class="small-12 medium-4 columns bloc clair">
-			
-			</div>
-			<div class="small-12 medium-4 columns bloc">
-			
-			</div>
-			<div class="small-12 medium-4 columns bloc clair">
-			
-			</div>
+			{% for project in projects %}
+				<div class="small-12 medium-4 columns bloc {% if loop.index % 2 == 0 %}clair{% endif %} {% if loop.last %}end{% endif %}">
+					<h3>{{ project.title }}</h3>
+					<div class="border"></div>
+					<p>lorem ipsum dolor sit amet</p>
+				</div>
+			{% endfor %}
 		</div>
 	</div>
 {% endblock %}

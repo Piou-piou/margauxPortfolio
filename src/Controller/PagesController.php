@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Project;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -20,7 +21,13 @@ class PagesController extends AbstractController
 	 */
 	public function projets()
 	{
-		return $this->render("pages/projets.html.twig");
+		$projects = $this->getDoctrine()->getManager()->getRepository(Project::class)->findBy([
+			"state" => Project::PUBLISHED,
+		]);
+		
+		return $this->render("pages/projets.html.twig", [
+			"projects" => $projects
+		]);
 	}
 	
 	/**

@@ -4,9 +4,19 @@
 	.bloc {
 		background: #C9C9C9;
 		height: 370px;
+		text-align: center;
+		padding-top: 120px;
+		font-family: futurabook;
 
 		&.clair {
 			background: #dadada;
+		}
+		
+		.border {
+			width: 60%;
+			height: 2px;
+			background: #000;
+			margin: 10px auto;
 		}
 	}
 }

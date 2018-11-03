@@ -4,6 +4,12 @@
 	<h1>Blog</h1>
 {% endblock %}
 
+{% block stylesheets %}
+	<link rel="stylesheet" href="{{ asset('build/ribs-admin-bundle/css/tynimce_skin.css') }}">
+	{{ parent() }}
+	<link rel="stylesheet" href="{{ asset('build/ribs-admin-bundle/css/tynimce_perso.css') }}">
+{% endblock %}
+
 {% block body %}
 	{{ form_start(form) }}
 	<div class="top-buttons">
@@ -43,9 +49,14 @@
 		<h2>Description du projet</h2>
 		
 		<div class="block no-input">
-			{{ form_label(form.article) }}
 			{{ form_widget(form.article) }}
 		</div>
 	</div>
 	{{ form_end(form) }}
+{% endblock %}
+
+{% block javascripts %}
+	{{ parent() }}
+	<script>const toolbar = 'text-only';</script>
+	<script src="{{ asset('build/ribs-admin-bundle/js/tinymce.js') }}"></script>
 {% endblock %}

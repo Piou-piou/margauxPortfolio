@@ -51,7 +51,9 @@ class EditProject extends AbstractType
 				'label_attr' => [
 					'class' => 'label label-textarea'
 				],
-				'attr' => [],
+				'attr' => [
+					'class' => "tinymce"
+				],
 				'required' => true
 			])
 			->add('submit', SubmitType::class, [

@@ -50,6 +50,13 @@ class Project
 	/**
 	 * @var string
 	 *
+	 * @ORM\Column(name="description", type="string", length=150, nullable=false)
+	 */
+	private $description;
+	
+	/**
+	 * @var string
+	 *
 	 * @ORM\Column(name="article", type="text", nullable=false)
 	 */
 	private $article;
@@ -160,6 +167,22 @@ class Project
 	public function setTitle(string $title)
 	{
 		$this->title = $title;
+	}
+	
+	/**
+	 * @return string
+	 */
+	public function getDescription(): string
+	{
+		return $this->description;
+	}
+	
+	/**
+	 * @param string $description
+	 */
+	public function setDescription(string $description): void
+	{
+		$this->description = $description;
 	}
 	
 	/**

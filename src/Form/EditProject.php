@@ -46,6 +46,14 @@ class EditProject extends AbstractType
 				'attr' => [],
 				'required' => true
 			])
+			->add('description', TextType::class, [
+				'label' => "Phrase d'accroche du projet",
+				'label_attr' => [
+					'class' => 'label'
+				],
+				'attr' => [],
+				'required' => true
+			])
 			->add('article', TextareaType::class, [
 				'label' => 'Description du projet',
 				'label_attr' => [

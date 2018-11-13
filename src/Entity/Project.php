@@ -83,6 +83,13 @@ class Project
 	private $state = self::PUBLISHED;
 	
 	/**
+	 * @var string
+	 *
+	 * @ORM\Column(name="images_dir", type="string", nullable=true)
+	 */
+	private $imagesDir;
+	
+	/**
 	 * @var \DateTime
 	 *
 	 * @Gedmo\Timestampable(on="create")
@@ -253,6 +260,22 @@ class Project
 	public function setState(int $state)
 	{
 		$this->state = $state;
+	}
+	
+	/**
+	 * @return array
+	 */
+	public function getImagesDir(): array
+	{
+		return $this->imagesDir;
+	}
+	
+	/**
+	 * @param string $images
+	 */
+	public function setImagesDir(string $images): void
+	{
+		$this->imagesDir = $images;
 	}
 	
 	/**

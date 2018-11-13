@@ -14,6 +14,11 @@
       "right": "ribsadmin@portfolio-margaux@edit",
       "url": "ribsadmin_portfolio_edit",
       "text": "Edit a project"
+    },
+    {
+      "right": "ribsadmin@portfolio-margaux",
+      "url": "ribsadmin_portfolio_image",
+      "text": "Allow to upload images"
     }
   ]
 }

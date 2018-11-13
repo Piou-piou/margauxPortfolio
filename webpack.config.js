@@ -9,10 +9,15 @@ Encore
 
 .addEntry('js/vendor', [
   './assets/js/index.js',
+  './node_modules/jquery/dist/jquery.min.js',
 ])
 
 .addEntry('js/index', [
   './node_modules/ribs-popup/dist/js/ribs-popup.js',
+])
+
+.addEntry('js/upload', [
+  './assets/js/upload.js',
 ])
 
 .addStyleEntry('css/vendor', [

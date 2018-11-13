@@ -5,12 +5,31 @@ namespace App\Controller;
 use App\Entity\Project;
 use App\Form\EditProject;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 class PortfolioController extends AbstractController
 {
+	/**
+	 * @Route("/ribs-admin/portfolio/image/{id}", name="ribsadmin_portfolio_image")
+	 * @return JsonResponse
+	 */
+	public function getImage(int $id = null)
+	{
+		if ($id === null) return new JsonResponse([]);
+		
+		$project = $this->getDoctrine()->getRepository(Project::class)->find($id);
+		
+		if ($project) {
+			$image = $this->get("app.traitement_fine_uploader")->getImagesDisplayed($project->getImagesDir());
+			
+			return $image;
+		} else {
+			return new JsonResponse([]);
+		}
+	}
 	
 	/**
 	 * @Route("/ribs-admin/portfolio/index/", name="ribsadmin_portfolio_index"))
@@ -62,7 +81,8 @@ class PortfolioController extends AbstractController
 		}
 		
 		return $this->render("admin/portfolio/edit.html.twig", [
-			"form" => $form->createView()
+			"form" => $form->createView(),
+			"id" => $id
 		]);
 	}
 }

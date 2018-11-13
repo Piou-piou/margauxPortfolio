@@ -51,6 +51,12 @@
 	</div>
 	
 	<div class="content-block">
+		{% include "admin/portfolio/upload.html.twig" %}
+		<script src="{{ asset('build/js/vendor.js') }}"></script>
+		<script src="{{ asset('build/js/upload.js') }}" multiple="false" endpoint="/upload" endpoint-session="/ribs-admin/portfolio/image/" extensions="jpeg, jpg, gif, png"></script>
+	</div>
+	
+	<div class="content-block">
 		<h2>Description du projet</h2>
 		
 		<div class="block no-input">

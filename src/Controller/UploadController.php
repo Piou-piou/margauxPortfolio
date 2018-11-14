@@ -67,7 +67,7 @@ class UploadController extends Controller
 		// If you want to use the chunking/resume feature, specify the folder to temporarily save parts.
 		$uploader->chunksFolder = "chunks";
 		
-		$tmp_directory = $this->getParameter("tmp_directory");
+		$ribs_tmp_directory = $this->getParameter("ribs_tmp_directory");
 		
 		$method = $_SERVER["REQUEST_METHOD"];
 		if ($method == "POST") {
@@ -75,10 +75,10 @@ class UploadController extends Controller
 			// Assumes you have a chunking.success.endpoint set to point here with a query parameter of "done".
 			// For example: /myserver/handlers/endpoint.php?done
 			if (isset($_GET["done"])) {
-				$result = $uploader->combineChunks($tmp_directory);
+				$result = $uploader->combineChunks($ribs_tmp_directory);
 			} else {
 				// Call handleUpload() with the name of the folder, relative to PHP's getcwd()
-				$result = $uploader->handleUpload($tmp_directory);
+				$result = $uploader->handleUpload($ribs_tmp_directory);
 				
 				// To return a name used for uploaded file you can use the following line.
 				$result["uploadName"] = $uploader->getUploadName();
@@ -90,10 +90,10 @@ class UploadController extends Controller
 		} else if ($method == "DELETE") {
 			$response = new JsonResponse();
 			
-			$file = glob($tmp_directory . "/" . $uuid . ".*");
+			$file = glob($ribs_tmp_directory . "/" . $uuid . ".*");
 			
 			if (count($file) > 0) {
-				$result = $uploader->handleDelete($tmp_directory, $uuid);
+				$result = $uploader->handleDelete($ribs_tmp_directory, $uuid);
 				$response->setData($result);
 			} else {
 				$response->setData(["success" => false, "server_file" => true]);

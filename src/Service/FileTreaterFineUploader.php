@@ -39,7 +39,7 @@ class FileTreaterFineUploader
 	 */
 	public function getImagesDisplayed(string $path): JsonResponse
 	{
-		$dir = $this->container->getParameter("data_directory") . $path;
+		$dir = $this->container->getParameter("ribs_data_directory") . $path;
 		
 		$objects = [];
 		
@@ -89,8 +89,8 @@ class FileTreaterFineUploader
 	private function deplacerFichiers(string $destination)
 	{
 		$fs = new Filesystem();
-		$tmp_dir = $this->container->getParameter("tmp_directory") . "/";
-		$data_dir = $this->container->getParameter("data_directory_relatif") . $destination;
+		$tmp_dir = $this->container->getParameter("ribs_tmp_directory") . "/";
+		$data_dir = $this->container->getParameter("ribs_data_directory_relatif") . $destination;
 		$new_files_dir = $this->container->get("app.utils")->createRecursiveDirFromRoot($data_dir);
 		
 		$new_files = [];
@@ -121,7 +121,7 @@ class FileTreaterFineUploader
 	private function deleteOldFile(array $files_to_delete, string $destination)
 	{
 		$fs = new Filesystem();
-		$data_dir = $this->container->getParameter("data_directory") . $destination;
+		$data_dir = $this->container->getParameter("ribs_data_directory") . $destination;
 		
 		foreach ($files_to_delete as $file) {
 			$file_to_delete = $data_dir . $file;

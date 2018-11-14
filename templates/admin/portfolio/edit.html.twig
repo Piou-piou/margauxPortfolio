@@ -8,6 +8,7 @@
 	<link rel="stylesheet" href="{{ asset('build/ribs-admin-bundle/css/tynimce_skin.css') }}">
 	{{ parent() }}
 	<link rel="stylesheet" href="{{ asset('build/ribs-admin-bundle/css/tynimce_perso.css') }}">
+	<link rel="stylesheet" href="{{ asset('build/css/fine-uploader.css') }}">
 {% endblock %}
 
 {% block body %}
@@ -52,7 +53,6 @@
 	
 	<div class="content-block">
 		{% include "admin/portfolio/upload.html.twig" %}
-		<script src="{{ asset('build/js/vendor.js') }}"></script>
 		<script src="{{ asset('build/js/upload.js') }}" multiple="false" endpoint="/upload" endpoint-session="/ribs-admin/portfolio/image/" extensions="jpeg, jpg, gif, png"></script>
 	</div>
 	

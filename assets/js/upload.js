@@ -12,7 +12,7 @@ const endpoint = currentScript.getAttribute('endpoint');
 const endpointSession = currentScript.getAttribute('endpoint-session');
 const extensionsStr = currentScript.getAttribute('extensions');
 let extensions = [];
-if (extensionsStr !== '') {
+if (extensionsStr !== null && extensionsStr !== '') {
   extensions = extensionsStr.split(',').map(item => item.trim());
 }
 
@@ -44,6 +44,24 @@ function galleryUploader() {
       enabled: true,
       forceConfirm: true,
       endpoint,
+      confirmMessage: 'Êtes-vous sûr(e) de vouloir SUPPRIMER ce fichier : {filename}?',
+    },
+    messages: {
+      typeError: '{file} a une extension invalide. Extension(s) autorisées : {extensions}.',
+      sizeError: '{file} est trop volumineux, la taille maximale est de {sizeLimit}.',
+      minSizeError: '{file} est trop petit, la taille minimale est de {minSizeLimit}.',
+      emptyError: '{file} est vide, merci de renvoyer votre fichier.',
+      noFilesError: 'Aucun fichier à envoyer',
+      tooManyItemsError: 'Il y a trop de fichiers ({netItems}) a envoyer.  Le nombre de fichiers maximum est {itemLimit}.',
+      maxHeightImageError: 'La taille de l\'image est trop grande',
+      maxWidthImageError: 'L\'image est trop large',
+      minHeightImageError: 'L\'image n\'est pas assez grande',
+      minWidthImageError: 'L\'image n\'est pas assez large',
+      retryFailTooManyItems: 'La nouvelle tentative a échoué. Vous avez atteint la limite du nombre de fichiers',
+      onLeave: 'Les fichiers sont en cours de téléchargement. Si vous quittez cette page maintenant, le téléchargement sera annulé.',
+      unsupportedBrowserIos8Safari: 'Votre navigateur n\'est pas supporté',
+      tooManyFilesError: 'Vous ne pouvez envoyer qu\'un seul fichier',
+      unsupportedBrowser: 'Votre navigateur n\'est pas supporté',
     },
     multiple: (multiple === 'true'),
     callbacks: {
@@ -116,11 +134,7 @@ function galleryUploader() {
         const input = document.getElementById('input-fine-uploader');
         const inputRealNames = document.getElementById('input-fine-uploader-real-names');
         const values = JSON.parse(input.value);
-        let valuesRealName = [];
-
-        if (inputRealNames.value !== '') {
-          valuesRealName = JSON.parse(inputRealNames.value);
-        }
+        const valuesRealName = JSON.parse(inputRealNames.value);
 
         const valueToDelete = values[id];
         values.splice(values[id], 1);
@@ -131,7 +145,7 @@ function galleryUploader() {
 
         const data = JSON.parse(xhr.response);
 
-        if (data.server_file === 'true' || data.server_file === true) {
+        if (data.fichier_serveur === 'true' || data.fichier_serveur === true) {
           const inputDelete = document.getElementById('input-fine-uploader-delete');
           const valuesDelete = JSON.parse(inputDelete.value);
 
@@ -217,9 +231,18 @@ function initGallery() {
   styleZoneUploader();
 }
 
+function initGalleryPopup() {
+  const files = $('#files');
+  if ($(files) !== null && $('#input-fine-uploader-real-names') !== null) {
+    $('#input-fine-uploader-real-names').val($(files).val());
+  }
+  initGallery();
+}
+
 $(document).ready(() => {
   if (ajaxScript === null) {
     const files = $('#files');
+    console.log(files);
     if ($(files) !== null && $('#input-fine-uploader-real-names') !== null) {
       $('#input-fine-uploader-real-names').val($(files).val());
     }
@@ -227,11 +250,5 @@ $(document).ready(() => {
   }
 });
 
-// a fix pour parcours
-/*$(document).on('afterLoad.fb', () => {
-  const files = $('#files');
-  if ($(files) !== null && $('#input-fine-uploader-real-names') !== null) {
-    $('#input-fine-uploader-real-names').val($(files).val());
-  }
-  initGallery();
-});*/
+export { initGalleryPopup };
+export default initGallery;

@@ -24,6 +24,11 @@ Encore
   './node_modules/ribs-popup/dist/css/style.css',
 ])
 
+.addStyleEntry('css/fine-uploader', [
+  './node_modules/fine-uploader/fine-uploader/fine-uploader-gallery.min.css',
+  './assets/scss/fine-uploader.scss',
+])
+
 .addStyleEntry('css/style', [
   './assets/scss/style.scss'
 ])

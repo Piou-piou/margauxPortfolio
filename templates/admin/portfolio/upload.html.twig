@@ -1,5 +1,5 @@
 <script type="text/template" id="qq-template-gallery">
-	<div class="qq-uploader-selector qq-uploader qq-gallery" qq-drop-area-text="Déposez vos fichiers">
+	<div class="qq-uploader-selector qq-uploader qq-gallery" qq-drop-area-text="Déposez vos fichiers" data-placeholder="Déposez vos fichiers">
 		<div class="qq-show-area hidden"></div>
 		<div class="qq-upload-button-selector qq-upload-button">
 			<div>Envoyer un fichier</div>
@@ -38,7 +38,7 @@
 					<input class="qq-edit-filename-selector qq-edit-filename" tabindex="0" type="text">
 					<span class="qq-upload-size-selector qq-upload-size"></span>
 					<button type="button" class="qq-btn qq-upload-delete-selector qq-upload-delete">
-						<span class="qq-btn qq-delete-icon" aria-label="Delete""></span>
+						<span class="qq-btn qq-delete-icon" aria-label="Delete"></span>
 					</button>
 					<button type="button" class="qq-btn qq-upload-pause-selector qq-upload-pause">
 						<span class="qq-btn qq-pause-icon" aria-label="Pause"></span>
@@ -81,6 +81,6 @@
 </script>
 
 <div id="fine-uploader-gallery"></div>
-<input type="hidden" value="" id="input-fine-uploader" name="input-fine-uploader" class="hidden">
-<input type="hidden" value="" id="input-fine-uploader-real-names" name="input-fine-uploader-real-names" class="hidden">
-<input type="hidden" value="" id="input-fine-uploader-delete" name="input-fine-uploader-delete" class="hidden">
+<input type="hidden" value="" id="input-fine-uploader" name="input-fine-uploader">
+<input type="hidden" value="" id="input-fine-uploader-real-names" name="input-fine-uploader-real-names">
+<input type="hidden" value="" id="input-fine-uploader-delete" name="input-fine-uploader-delete">

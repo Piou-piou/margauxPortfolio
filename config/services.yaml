@@ -29,3 +29,9 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+
+
+    app.treatment_fine_uploader:
+        class: App\Service\FileTreaterFineUploader
+        arguments: ['@service_container', '@request_stack']
+        public: true

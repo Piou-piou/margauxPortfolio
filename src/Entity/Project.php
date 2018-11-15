@@ -179,7 +179,7 @@ class Project
 	/**
 	 * @return string
 	 */
-	public function getDescription(): string
+	public function getDescription(): ?string
 	{
 		return $this->description;
 	}
@@ -263,9 +263,9 @@ class Project
 	}
 	
 	/**
-	 * @return array
+	 * @return string
 	 */
-	public function getImagesDir(): array
+	public function getImagesDir(): string
 	{
 		return $this->imagesDir;
 	}

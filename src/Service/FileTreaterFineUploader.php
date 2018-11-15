@@ -86,12 +86,12 @@ class FileTreaterFineUploader
 	 * @param string $destination
 	 * method that move files in desired folder
 	 */
-	private function deplacerFichiers(string $destination)
+	private function moveFiles(string $destination)
 	{
 		$fs = new Filesystem();
 		$tmp_dir = $this->container->getParameter("ribs_tmp_directory") . "/";
 		$data_dir = $this->container->getParameter("ribs_data_directory_relatif") . $destination;
-		$new_files_dir = $this->container->get("app.utils")->createRecursiveDirFromRoot($data_dir);
+		$new_files_dir = $this->createRecursiveDirFromRoot($data_dir);
 		
 		$new_files = [];
 		foreach ($this->files as $file) {
@@ -152,7 +152,7 @@ class FileTreaterFineUploader
 			return $this;
 		}
 		
-		$this->deplacerFichiers($destination);
+		$this->moveFiles($destination);
 		
 		return $this;
 	}
@@ -180,5 +180,57 @@ class FileTreaterFineUploader
 		}
 		
 		return $this;
+	}
+	
+	/**
+	 * @param $path
+	 * @return string
+	 */
+	private function createRecursiveDirFromRoot($path): string
+	{
+		$fs = new Filesystem();
+		$root_dir = $this->container->get("kernel")->getRootDir() . "/../";
+		$new_path = $root_dir;
+		$dossiers = explode("/", $path);
+		
+		foreach ($dossiers as $index => $dossier) {
+			$new_path .= $dossier;
+			
+			if (!$fs->exists($new_path)) {
+				$fs->mkdir($new_path);
+			}
+			
+			if ($index + 1 < count($dossiers)) {
+				$new_path .= "/";
+			}
+		}
+		
+		return $new_path;
+	}
+	
+	/**
+	 * @return string
+	 */
+	public function genGuid(): string
+	{
+		return sprintf('%04x%04x-%04x-%04x-%04x-%04x%04x%04x',
+			// 32 bits for "time_low"
+			mt_rand(0, 0xffff), mt_rand(0, 0xffff),
+			
+			// 16 bits for "time_mid"
+			mt_rand(0, 0xffff),
+			
+			// 16 bits for "time_hi_and_version",
+			// four most significant bits holds version number 4
+			mt_rand(0, 0x0fff) | 0x4000,
+			
+			// 16 bits, 8 bits for "clk_seq_hi_res",
+			// 8 bits for "clk_seq_low",
+			// two most significant bits holds zero and one for variant DCE1.1
+			mt_rand(0, 0x3fff) | 0x8000,
+			
+			// 48 bits for "node"
+			mt_rand(0, 0xffff), mt_rand(0, 0xffff), mt_rand(0, 0xffff)
+		);
 	}
 }

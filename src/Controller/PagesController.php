@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Project;
+use App\Service\FileTreaterFineUploader;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -19,14 +20,26 @@ class PagesController extends AbstractController
 	/**
 	 * @Route("/projets", name="projets")
 	 */
-	public function projets()
+	public function projets(FileTreaterFineUploader $fine_uploader)
 	{
 		$projects = $this->getDoctrine()->getManager()->getRepository(Project::class)->findBy([
 			"state" => Project::PUBLISHED,
 		]);
 		
+		$images = [];
+		
+		foreach ($projects as $project) {
+			$image = null;
+			
+			if ($project->getImagesDir() !== null) {
+				$image = json_decode($fine_uploader->getImagesDisplayed($project->getImagesDir())->getContent());
+				$images[$project->getId()] = $image[0]->thumbnailUrl;
+			}
+		}
+		
 		return $this->render("pages/projets.html.twig", [
-			"projects" => $projects
+			"projects" => $projects,
+			"images" => $images
 		]);
 	}
 	

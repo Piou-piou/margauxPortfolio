@@ -265,7 +265,7 @@ class Project
 	/**
 	 * @return string
 	 */
-	public function getImagesDir(): string
+	public function getImagesDir(): ?string
 	{
 		return $this->imagesDir;
 	}

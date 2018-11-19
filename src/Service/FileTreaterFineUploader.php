@@ -37,7 +37,7 @@ class FileTreaterFineUploader
 	 * @param string $path represent path to go to file
 	 * @return JsonResponse
 	 */
-	public function getImagesDisplayed(string $path): JsonResponse
+	public function getImagesDisplayed(string $path = null): JsonResponse
 	{
 		$dir = $this->container->getParameter("ribs_data_directory") . $path;
 		

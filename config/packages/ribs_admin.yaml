@@ -1,8 +1,3 @@
-parameters:
-  ribs_tmp_directory: '%kernel.project_dir%/tmp'
-  ribs_data_directory: '%kernel.project_dir%/data/'
-  ribs_data_directory_relatif: 'data/'
-
 services:
     PiouPiou\RibsAdminBundle\EventListener\GuidAwareListener:
         arguments: [ "@service_container" ]
@@ -25,9 +20,19 @@ services:
         arguments: ['@service_container', "@ribs_admin.globals"]
         public: true
 
+    ribs_admin.api:
+        class: PiouPiou\RibsAdminBundle\Service\Api
+        arguments: ["@service_container","@doctrine.orm.default_entity_manager"]
+        public: true
+
+    ribs_admin.jwt:
+        class: PiouPiou\RibsAdminBundle\Service\Jwt
+        public: true
+
+    #forms
     PiouPiou\RibsAdminBundle\Form\User:
-        autowire: true
-        autoconfigure: true
+        arguments: ['@doctrine.orm.entity_manager', '@security.token_storage']
+        tags: [form.type]
 
 framework:
     assets:
@@ -63,7 +68,8 @@ security:
             pattern: ^/
             http_basic: ~
             provider: our_db_provider
-            logout: true
+            logout:
+                path: ribs_admin_logout
             anonymous: ~
             form_login:
                 login_path: /ribs-admin/login
@@ -74,6 +80,8 @@ security:
     # require ROLE_ADMIN for /admin*
     - { path: ^/ribs-admin/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
     - { path: ^/ribs-admin/login, role: IS_AUTHENTICATED_ANONYMOUSLY }
+    - { path: ^/ribs-admin/api/users/authenticate$, role: IS_AUTHENTICATED_ANONYMOUSLY }
+    - { path: ^/ribs-admin/api/users/authenticate, role: IS_AUTHENTICATED_ANONYMOUSLY }
     - { path: ^/ribs-admin/register$, role: IS_AUTHENTICATED_ANONYMOUSLY }
     - { path: ^/ribs-admin/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
     - { path: ^/ribs-admin, roles: ROLE_ADMIN }

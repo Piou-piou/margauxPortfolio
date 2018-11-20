@@ -44,6 +44,27 @@ class PagesController extends AbstractController
 	}
 	
 	/**
+	 * @Route("/projets/{id}", name="project")
+	 */
+	public function project(FileTreaterFineUploader $fine_uploader, int $id)
+	{
+		$project = $this->getDoctrine()->getManager()->getRepository(Project::class)->find($id);
+		
+		$image = null;
+		
+		if ($project->getImagesDir() !== null) {
+			$image = json_decode($fine_uploader->getImagesDisplayed($project->getImagesDir())->getContent());
+		}
+		
+		dump($image);
+		
+		return $this->render("pages/projet.html.twig", [
+			"project" => $project,
+			"images" => $image
+		]);
+	}
+	
+	/**
 	 * @Route("/a-propos", name="a_propos")
 	 */
 	public function aPropos()

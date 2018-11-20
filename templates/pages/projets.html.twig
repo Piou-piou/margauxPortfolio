@@ -9,14 +9,17 @@
 	<div class="projets">
 		<div class="row expanded">
 			{% for project in projects %}
-				<div
-					class="small-12 medium-4 columns bloc {% if loop.index % 2 == 0 %}clair{% endif %} {% if loop.last %}end{% endif %}"
-					{% if images[project.id] is defined %}style="background-image: url({{ images[project.id] }})"{% endif %}
-				>
-					<h3>{{ project.title }}</h3>
-					<div class="border"></div>
-					<p>{{ project.description }}</p>
-				</div>
+				<a href="{{ path('project', {'id': project.id}) }}">
+					<div class="small-12 medium-4 columns bloc pl0 pr0 {% if loop.index % 2 == 0 %}clair{% endif %} {% if loop.last %}end{% endif %}">
+						<div class="bg-image" {% if images[project.id] is defined %}style="background-image: url({{ images[project.id] }})"{% endif %}></div>
+						
+						<div class="bg-text">
+							<h3>{{ project.title }}</h3>
+							<div class="border"></div>
+							<p>{{ project.description }}</p>
+						</div>
+					</div>
+				</a>
 			{% endfor %}
 		</div>
 	</div>

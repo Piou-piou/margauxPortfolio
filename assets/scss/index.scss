@@ -25,6 +25,12 @@
 		}
 	}
 
+	@media screen and (max-width: 1000px) {
+		.ronds, .dessins {
+			display: none;
+		}
+	}
+
 	.dessins {
 		z-index: 2;
 	}

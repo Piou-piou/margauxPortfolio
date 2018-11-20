@@ -1,12 +1,44 @@
 .projets {
 	margin-top: 2rem;
 
+	a {
+		color: inherit;
+	}
+
 	.bloc {
 		background: #C9C9C9;
 		height: 370px;
 		text-align: center;
-		padding-top: 120px;
+		position: relative;
+		overflow: hidden;
 		font-family: futurabook;
+
+		&:hover {
+			.bg-image {
+				filter: blur(3px);
+				transition: all 0.3s ease;
+			}
+		}
+
+		.bg-image {
+			height: 100%;
+			transition: all 0.3s ease;
+		}
+
+		.bg-text {
+			background-color: rgba(0,0,0, 0.4);
+			color: white;
+			font-weight: bold;
+			border: 3px solid #f1f1f1;
+			position: absolute;
+			top: 0;
+			left: 0;
+			z-index: 2;
+			width: 100%;
+			height: 100%;
+			padding-top: 120px;
+			text-align: center;
+		}
 
 		&.clair {
 			background: #dadada;
@@ -18,5 +50,32 @@
 			background: #000;
 			margin: 10px auto;
 		}
+	}
+}
+
+.un-projet {
+	background: #eeeeee;
+	margin-top: 3rem;
+
+	h1 {
+		font-family: futurabook;
+		text-transform: uppercase;
+	}
+
+	article {
+		font-family: futurabook;
+		color: #a0a0a0;
+		font-size: 1.2rem;
+	}
+}
+
+.projet-img {
+	div {
+		width: 180px;
+		height: 130px;
+		float: left;
+		background-size: cover;
+		background-position: center center;
+		margin: 1rem 1rem 0 0;
 	}
 }

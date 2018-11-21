@@ -18,6 +18,11 @@
 				filter: blur(3px);
 				transition: all 0.3s ease;
 			}
+
+			.bg-text {
+				transform: scale(1);
+				transition: all 0.3s ease;
+			}
 		}
 
 		.bg-image {
@@ -29,7 +34,6 @@
 			background-color: rgba(0,0,0, 0.4);
 			color: white;
 			font-weight: bold;
-			border: 3px solid #f1f1f1;
 			position: absolute;
 			top: 0;
 			left: 0;
@@ -38,6 +42,8 @@
 			height: 100%;
 			padding-top: 120px;
 			text-align: center;
+			transform: scale(0);
+			transition: all 0.3s ease;
 		}
 
 		&.clair {
@@ -47,7 +53,7 @@
 		.border {
 			width: 60%;
 			height: 2px;
-			background: #000;
+			background: #fff;
 			margin: 10px auto;
 		}
 	}
@@ -70,6 +76,8 @@
 }
 
 .projet-img {
+	margin-bottom: 3rem;
+
 	div {
 		width: 180px;
 		height: 130px;

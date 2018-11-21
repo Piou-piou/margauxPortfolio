@@ -56,8 +56,6 @@ class PagesController extends AbstractController
 			$image = json_decode($fine_uploader->getImagesDisplayed($project->getImagesDir())->getContent());
 		}
 		
-		dump($image);
-		
 		return $this->render("pages/projet.html.twig", [
 			"project" => $project,
 			"images" => $image

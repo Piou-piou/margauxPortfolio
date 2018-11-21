@@ -57,7 +57,7 @@ class Project
 	/**
 	 * @var string
 	 *
-	 * @ORM\Column(name="article", type="text", nullable=false)
+	 * @ORM\Column(name="article", type="text", nullable=true)
 	 */
 	private $article;
 	
@@ -203,7 +203,7 @@ class Project
 	/**
 	 * @param string $article
 	 */
-	public function setArticle(string $article)
+	public function setArticle(?string $article)
 	{
 		$this->article = $article;
 	}

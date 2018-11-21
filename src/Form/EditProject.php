@@ -63,7 +63,7 @@ class EditProject extends AbstractType
 					'class' => "tinymce",
 					'readonly' => true
 				],
-				'required' => true
+				'required' => false
 			])
 			->add('submit', SubmitType::class, [
 				'label' => 'Valider',

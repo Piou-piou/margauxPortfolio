@@ -1,3 +1,8 @@
+parameters:
+    ribs_tmp_directory: '%kernel.project_dir%/tmp'
+    ribs_data_directory: '%kernel.project_dir%/data/'
+    ribs_data_directory_relatif: 'data/'
+
 services:
     PiouPiou\RibsAdminBundle\EventListener\GuidAwareListener:
         arguments: [ "@service_container" ]

@@ -22,9 +22,7 @@
 		
 		<div class="row projet-img">
 			{% for image in images %}
-				{% if loop.index != loop.first %}
-					<div style="background-image: url({{ image.thumbnailUrl }})"></div>
-				{% endif %}
+					<div style="background-image: url({{ image.thumbnailUrl }})" data-src="{{ image.thumbnailUrl }}"></div>
 			{% endfor %}
 		</div>
 	</div>

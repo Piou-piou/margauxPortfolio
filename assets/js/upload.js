@@ -133,8 +133,8 @@ function galleryUploader() {
       onDeleteComplete: (id, xhr) => {
         const input = document.getElementById('input-fine-uploader');
         const inputRealNames = document.getElementById('input-fine-uploader-real-names');
-        const values = JSON.parse(input.value);
-        const valuesRealName = JSON.parse(inputRealNames.value);
+        const values = JSON.parse(input.value);console.log(inputRealNames.value);
+        const valuesRealName = inputRealNames.value.length > 0 ? JSON.parse(inputRealNames.value) : [];
 
         const valueToDelete = values[id];
         values.splice(values[id], 1);
@@ -145,7 +145,7 @@ function galleryUploader() {
 
         const data = JSON.parse(xhr.response);
 
-        if (data.fichier_serveur === 'true' || data.fichier_serveur === true) {
+        if (data.server_file === 'true' || data.server_file === true) {
           const inputDelete = document.getElementById('input-fine-uploader-delete');
           const valuesDelete = JSON.parse(inputDelete.value);
 

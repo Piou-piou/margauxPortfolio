@@ -69,15 +69,22 @@ class PortfolioController extends AbstractController
 		$form->handleRequest($request);
 		
 		if ($form->isSubmitted() && $form->isValid()) {
-			$folder_path = 'portfolio/'. $fine_uploader->genGuid().'/';
-			$project->setImagesDir($folder_path);
-			$em->persist($form->getData());
+			if (($id !== null && $project->getImagesDir() === null) || $id === null) {
+				$folder_path = 'portfolio/'. $fine_uploader->genGuid().'/';
+			} else {
+				$folder_path = $project->getImagesDir();
+			}
 			
 			$image = $fine_uploader
 			              ->treatFiles($folder_path)
 			              ->resizeImages(900, 900)
 			              ->getFiles();
 			
+			if (count($image) > 0) {
+				$project->setImagesDir($folder_path);
+			}
+			
+			$em->persist($form->getData());
 			$em->flush();
 			
 			if ($edit === true) {

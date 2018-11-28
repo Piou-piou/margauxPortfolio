@@ -13,8 +13,8 @@
 			<div class="small-12 medium-8 columns pl0 pr0">
 				<img src="{{ images is defined and images is iterable ? images[0].thumbnailUrl : '' }}" alt="">
 				
-				<div class="row projet-img">
-					<div class="small-12">
+				<div class="projet-img">
+					<div>
 						{% for image in images %}
 							<div style="background-image: url({{ image.thumbnailUrl }})" data-src="{{ image.thumbnailUrl }}"></div>
 						{% endfor %}

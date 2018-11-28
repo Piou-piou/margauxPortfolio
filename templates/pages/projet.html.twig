@@ -11,7 +11,9 @@
 	<div class="">
 		<div class="row un-projet">
 			<div class="small-12 medium-8 columns pl0 pr0">
-				<img src="{{ images is defined and images is iterable ? images[0].thumbnailUrl : '' }}" alt="">
+				<div class="image">
+					<img src="{{ images is defined and images is iterable ? images[0].thumbnailUrl : '' }}" alt="">
+				</div>
 				
 				<div class="projet-img">
 					<div>

@@ -11,6 +11,7 @@ Encore
   './assets/js/index.js',
   './assets/js/projet.js',
   './node_modules/jquery/dist/jquery.min.js',
+  './node_modules/ribs-flash-message/dist/js/ribs-flash-message.js',
 ])
 
 .addEntry('js/upload', [
@@ -27,7 +28,8 @@ Encore
 ])
 
 .addStyleEntry('css/style', [
-  './assets/scss/style.scss'
+  './assets/scss/style.scss',
+  './node_modules/ribs-flash-message/dist/css/style.css',
 ])
 
 .enableBuildNotifications()

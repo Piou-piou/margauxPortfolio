@@ -7,6 +7,21 @@
 {% block class_contact %}contact-actif{% endblock %}
 
 {% block body %}
+	{% for message in app.session.flashBag.get('success') %}
+	<div class="RibsFlashMessage success">
+		<div class="notification">
+			<div class="left">
+				<div class="icone">
+					<i class='fa fa-info'></i>
+				</div>
+			</div>
+			<div class="right">
+				<p>{{ message }}</p>
+			</div>
+		</div>
+	</div>
+	{% endfor %}
+	
 	<div class="contact">
 		<div class="row">
 			<h2 class="text-center">Une question ?</h2>
@@ -14,7 +29,7 @@
 			<p class="text-center">N’hésitez pas à me contacter, je vous répondrai le plus rapidement possible</p>
 		</div>
 		
-		<form action="" class="row">
+		<form action="{{ path('contact_send') }}" method="post" class="row">
 			<div class="row">
 				<div class="small-12 medium-9 columns">
 					<div class="row">
@@ -23,7 +38,7 @@
 								<label for="">Nom</label>
 							</div>
 							<div class="small-12 medium-9 columns">
-								<input type="text">
+								<input type="text" name="lastname" required>
 							</div>
 						</div>
 						<div class="small-12 medium-6 columns">
@@ -31,7 +46,7 @@
 								<label for="">Prénom</label>
 							</div>
 							<div class="small-12 medium-9 columns">
-								<input type="text">
+								<input type="text" name="firsttname" required>
 							</div>
 						</div>
 					</div>
@@ -45,7 +60,7 @@
 								<label for="">Email</label>
 							</div>
 							<div class="small-12 medium-9 columns">
-								<input type="text">
+								<input type="text" name="email" required>
 							</div>
 						</div>
 						<div class="small-12 medium-6 columns">
@@ -53,7 +68,7 @@
 								<label for="">Objet</label>
 							</div>
 							<div class="small-12 medium-9 columns">
-								<input type="text">
+								<input type="text" name="object" required>
 							</div>
 						</div>
 					</div>

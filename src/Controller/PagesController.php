@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Project;
 use App\Service\FileTreaterFineUploader;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
 class PagesController extends AbstractController
@@ -76,5 +77,28 @@ class PagesController extends AbstractController
 	public function contact()
 	{
 		return $this->render("pages/contact.html.twig");
+	}
+	
+	/**
+	 * @Route("/contact/send", name="contact_send")
+	 * @param Request $request
+	 * @param \Swift_Mailer $mailer
+	 */
+	public function sendForm(Request $request, \Swift_Mailer $mailer) {
+		$message = "<h2> Message de la part de  :".$request->get("firstname")." ". $request->get("lastname") ."</h2><br><br>";
+		
+		$mail = $message.$request->get("message");
+		
+		$mailer = $this->get("swiftmailer.mailer");
+		
+		$message = (new \Swift_Message("Message de margauxbailly.fr, sujet : ". $request->get("object")))
+			->setFrom($request->get("email"))
+			->setTo("pilloud.anthony@gmail.com")
+			->setBody($mail, "text/html");
+		
+		$mailer->send($message);
+		$this->addFlash("success", "Votre message a été envoyé");
+		
+		$this->redirectToRoute("contact");
 	}
 }

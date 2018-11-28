@@ -28,7 +28,8 @@
     "ribs-popup": "*",
     "gsap": "^2.0.2",
     "jquery": "^3.3.1",
-    "fine-uploader": "^5.15.6"
+    "fine-uploader": "^5.15.6",
+    "ribs-flash-message": "^1.2.2"
   },
   "license": "UNLICENSED",
   "private": true,

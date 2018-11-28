@@ -60,8 +60,11 @@
 }
 
 .un-projet {
-	background: #eeeeee;
 	margin-top: 3rem;
+
+	.background {
+		background: #eeeeee;
+	}
 
 	h1 {
 		font-family: futurabook;
@@ -78,7 +81,7 @@
 .projet-img {
 	margin-bottom: 3rem;
 
-	div {
+	div div {
 		width: 180px;
 		height: 130px;
 		float: left;

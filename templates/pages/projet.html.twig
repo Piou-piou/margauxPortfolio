@@ -10,22 +10,24 @@
 {% block body %}
 	<div class="">
 		<div class="row un-projet">
-			<div class="small-12 medium-8 columns pl0">
+			<div class="small-12 medium-8 columns pl0 pr0">
 				<img src="{{ images is defined and images is iterable ? images[0].thumbnailUrl : '' }}" alt="">
+				
+				<div class="row projet-img">
+					<div class="small-12">
+						{% for image in images %}
+							<div style="background-image: url({{ image.thumbnailUrl }})" data-src="{{ image.thumbnailUrl }}"></div>
+						{% endfor %}
+					</div>
+				</div>
 			</div>
-			<div class="small-12 medium-4 columns">
+			<div class="small-12 medium-4 columns background">
 				<h1>{{ project.title }}</h1>
 				
 				<article>
 					{{ project.article|raw }}
 				</article>
 			</div>
-		</div>
-		
-		<div class="row projet-img">
-			{% for image in images %}
-					<div style="background-image: url({{ image.thumbnailUrl }})" data-src="{{ image.thumbnailUrl }}"></div>
-			{% endfor %}
 		</div>
 	</div>
 {% endblock %}
